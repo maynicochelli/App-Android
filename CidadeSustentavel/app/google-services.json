@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "278000934834",
+    "project_id": "cidadesustentavel-f564e",
+    "storage_bucket": "cidadesustentavel-f564e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278000934834:android:bd24554c416841b4c04eab",
+        "android_client_info": {
+          "package_name": "com.aplicativo.cidadesustentavel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "278000934834-84c2a08641smh0389npqjres3on34df0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aplicativo.cidadesustentavel",
+            "certificate_hash": "f135f128c256cab1630d528c51560120e89dbb63"
+          }
+        },
+        {
+          "client_id": "278000934834-moikblumf55bgub5lcikpdnoi4ok2jri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOhIOefhGUTwxJdp9em9Z2fOC-mpyLswI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "278000934834-moikblumf55bgub5lcikpdnoi4ok2jri.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
