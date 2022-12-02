@@ -26,8 +26,6 @@ P
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 r
 Bapp/src/main/java/com/aplicativo/cidadesustentavel/FormActivity.kt,d\0\d07a46b3b3a45ed3d282ecacca09dcdbea4d8eb9
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 r
 Bapp/src/main/java/com/aplicativo/cidadesustentavel/ClueActivity.kt,5\2\52378336b87e615b7cc7b14e95b88c745ec6f90a
 r
