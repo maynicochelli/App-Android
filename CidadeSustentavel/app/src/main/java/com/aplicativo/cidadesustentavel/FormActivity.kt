@@ -86,7 +86,7 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
              * */
             val calendar = Calendar.getInstance(Locale.getDefault())
             val timeStamp =
-                android.text.format.DateFormat.format("yyyy:hh:mm:ss-", calendar).toString()
+                android.text.format.DateFormat.format("yyyy.MM.dd-hh:mm:ss-", calendar).toString()
 
             database.collection("users").document(timeStamp + email).set(usuarios)
                 .addOnCompleteListener {
