@@ -63,6 +63,7 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
 
         /**
          * Validação se os campos forem vazios ou nulos mandar alerta para a função Toast
+         * Caso os campos estiverem preenchidos as informações serão armazenadas no Banco de Dados
          * */
         if (name.isNullOrBlank()) {
             Toast.makeText(this, R.string.validation_nome, Toast.LENGTH_SHORT).show()
@@ -70,41 +71,42 @@ class FormActivity : AppCompatActivity(), View.OnClickListener {
             Toast.makeText(this, R.string.validation_email, Toast.LENGTH_SHORT).show()
         } else if (texto.isNullOrBlank()) {
             Toast.makeText(this, R.string.validation_sugestao, Toast.LENGTH_SHORT).show()
+        } else {
+            /**
+             * Criação de lista(hashMap) que possui uma chave e valor para armazenar no Banco de Dados
+             * */
+            val usuarios = hashMapOf(
+                "nome" to name,
+                "email" to email,
+                "sugestao" to texto
+            )
+
+            /**
+             * Criação de timestamp que será o id de cada sugestão armazenada no Banco de Dados
+             * */
+            val calendar = Calendar.getInstance(Locale.getDefault())
+            val timeStamp =
+                android.text.format.DateFormat.format("yyyy:hh:mm:ss-", calendar).toString()
+
+            database.collection("users").document(timeStamp + email).set(usuarios)
+                .addOnCompleteListener {
+                    /**
+                     * Alerta e log para a sugestão enviada e salva,
+                     * após enviado é feito limpeza dos campos do formulário
+                     * */
+                    Log.d("bancoDados", "Sucesso ao salvar sugestão no Banco de Dados")
+
+                    Toast.makeText(this, R.string.validation_enviado, Toast.LENGTH_SHORT).show()
+                    binding.editName.text.clear()
+                    binding.editEmail.text.clear()
+                    binding.editSugestao.text.clear()
+                }.addOnFailureListener {
+                    /**
+                     * Alerta caso ocorra algum erro ao salvar os dados no Banco de Dados
+                     * */
+                    Log.d("bancoDados", "Erro ao salvar sugestão no Banco de Dados")
+                }
+
         }
-
-        /**
-         * Criação de lista(hashMap) que possui uma chave e valor para armazenar no Banco de Dados
-         * */
-        val usuarios = hashMapOf(
-            "nome" to name,
-            "email" to email,
-            "sugestao" to texto
-        )
-
-        /**
-         * Criação de timestamp que será o id de cada sugestão armazenada no Banco de Dados
-         * */
-        val calendar = Calendar.getInstance(Locale.getDefault())
-        val timeStamp = android.text.format.DateFormat.format("yyyy:hh:mm:ss-", calendar).toString()
-
-        database.collection("users").document(timeStamp + email).set(usuarios)
-            .addOnCompleteListener {
-                /**
-                 * Alerta e log para a sugestão enviada e salva,
-                 * após enviado é feito limpeza dos campos do formulário
-                 * */
-                Log.d("bancoDados", "Sucesso ao salvar sugestão no Banco de Dados")
-
-                Toast.makeText(this, R.string.validation_enviado, Toast.LENGTH_SHORT).show()
-                binding.editName.text.clear()
-                binding.editEmail.text.clear()
-                binding.editSugestao.text.clear()
-            }.addOnFailureListener {
-                /**
-                 * Alerta caso ocorra algum erro ao salvar os dados no Banco de Dados
-                 * */
-                Log.d("bancoDados", "Erro ao salvar sugestão no Banco de Dados")
-            }
     }
-
 }
