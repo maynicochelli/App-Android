@@ -1,6 +1,6 @@
 # <p align="center">Sustainable City App</p>
   
-An application designed to promote recycling and sustainability in smart cities.
+An Mobile Application designed to promote recycling and sustainability within smart cities.
 
 ## 📱Features    
 - Information about recycling practices
